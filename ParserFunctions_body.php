@@ -414,8 +414,7 @@ class ExtParserFunctions {
 		self::registerClearHook();
 		if ( $date === '' ) {
 			$cacheKey = $parser->getOptions()->getTimestamp();
-			$timestamp = new MWTimestamp( $cacheKey );
-			$date = $timestamp->getTimestamp( TS_ISO_8601 );
+			$timestamp = wfTimestamp( TS_ISO_8601, $cacheKey );
 		} else {
 			$cacheKey = $date;
 		}
